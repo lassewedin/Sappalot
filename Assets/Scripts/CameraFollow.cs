@@ -34,31 +34,31 @@ public class CameraFollow : MonoBehaviour
 	}
 
 	void LateUpdate() {
-		transform.position = new Vector3 (transform.position.x, cameraAltitude ,transform.position.z);
-		gameObject.transform.GetChild (0).position = new Vector3 (1f, 1f, 1f);
+  //		transform.position = new Vector3 (transform.position.x, cameraAltitude ,transform.position.z);
+//		gameObject.transform.GetChild (0).position = new Vector3 (1f, 1f, 1f);
 
-		if(	follow	)
-			TrackPlayer();
+//		if(	follow	)
+//			TrackPlayer();
 	}
 	
 	void TrackPlayer ()	{
-		Vector3 playerPosition = player.transform.position;
+//		Vector3 playerPosition = player.transform.position;
 
-		Vector3 playerToCursor = cursorWorldPosition.GetComponent<CursorTracker>().worldLocation - playerPosition;
+//		Vector3 playerToCursor = cursorWorldPosition.GetComponent<CursorTracker>().worldLocation - playerPosition;
 
-		Vector3 cameraGoalPosition = playerPosition + playerToCursor * cameraCloseness;
+//		Vector3 cameraGoalPosition = playerPosition + playerToCursor * cameraCloseness;
 
-		Vector3 newCameraPosition;
-		if(cameraSmoothness != 0.0f )
-			newCameraPosition = transform.position + (cameraGoalPosition - transform.position) * Time.deltaTime / cameraSmoothness;
-		else
-			newCameraPosition = cameraGoalPosition;
+//		Vector3 newCameraPosition;
+//		if(cameraSmoothness != 0.0f )
+//			newCameraPosition = transform.position + (cameraGoalPosition - transform.position) * Time.deltaTime / cameraSmoothness;
+//		else
+//			newCameraPosition = cameraGoalPosition;
 
-		transform.position = new Vector3 (newCameraPosition.x, transform.position.y, newCameraPosition.z);
+//		transform.position = new Vector3 (newCameraPosition.x, transform.position.y, newCameraPosition.z);
 
-		transform.rotation = Quaternion.Euler (0f, 0f, 0f);
-		transform.Rotate (90f - Mathf.Clamp (playerToCursor.z * cameraTilt, -cameraTiltMax, cameraTiltMax), 0f, 0f);
-		transform.Rotate (0f, Mathf.Clamp(playerToCursor.x * cameraTilt,-cameraTiltMax, cameraTiltMax), 0f);
+//		transform.rotation = Quaternion.Euler (0f, 0f, 0f);
+//		transform.Rotate (90f - Mathf.Clamp (playerToCursor.z * cameraTilt, -cameraTiltMax, cameraTiltMax), 0f, 0f);
+//		transform.Rotate (0f, Mathf.Clamp(playerToCursor.x * cameraTilt,-cameraTiltMax, cameraTiltMax), 0f);
 
 
 	}
