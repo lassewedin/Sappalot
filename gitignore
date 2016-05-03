@@ -1,0 +1,8 @@
+*.csproj
+*.sln
+*.userprefs
+.vs
+Exports
+Library
+Temp
+obj
