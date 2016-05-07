@@ -3,13 +3,18 @@ using System.Collections;
 
 public class Block : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public int maxHp = 1;
+
+    private int hp;
+
+    private void Start() {
+        hp = maxHp;
+    }
+
+    public void Hit(int damage) {
+        hp -= damage;
+        if (hp <= 0) {
+            Destroy(gameObject);
+        }
+    }
 }

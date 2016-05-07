@@ -35,10 +35,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter (Collider collider) 
 	{
 		if (collider.tag == "Block") {
-
-
 			play ();
-
 			//find exact collision
 			float rayLength = 1.8f;
 			RaycastHit hitInfo = new RaycastHit();
@@ -47,7 +44,6 @@ public class Bullet : MonoBehaviour {
 			Vector3 collisionPoint = this.transform.position; //default
 			if(hit)
 				collisionPoint = hitInfo.point;
-
 
 			Vector3 box = collider.transform.position;
 
@@ -74,14 +70,15 @@ public class Bullet : MonoBehaviour {
 			GameObject ricochetInstance = Instantiate (ricochetParticle, collisionPoint, Quaternion.LookRotation(Vector3.Reflect (this.transform.forward, normal), Vector3.up) ) as GameObject;
 			ricochetInstance.GetComponent<ParticleSystem>().startSpeed = this.GetComponent<Rigidbody>().velocity.magnitude * ricochetDamp;
 
-
-
 			//keep game object because the audio source is still needed to play ricochet sound
 			Destroy( gameObject.GetComponent<BoxCollider>() );
 			Destroy( gameObject.GetComponent<Rigidbody>() );
 			Destroy( gameObject.GetComponent<LineRenderer>() );
 			Destroy( gameObject.GetComponent<Light>() );
 			inAir = false;
+
+            Block block = collider.GetComponent<Block>();
+            block.Hit(1);
 		}
 	}
 }
