@@ -42,7 +42,7 @@ public class Rifle : Weapon {
 
 			gameObject.GetComponent<AudioSource>().Play();
 
-			Rigidbody bulletInstance = Instantiate (bullet, muzzleTransform.transform.position, gameObject.transform.rotation) as Rigidbody;
+			Rigidbody bulletInstance = Instantiate (bullet, muzzleTransform.transform.position, muzzleTransform.transform.rotation) as Rigidbody;
 			bulletInstance.velocity = parentV * addParentVelocity + this.transform.forward * leavingVelocity;
 
 			SetCoolDownWarm();

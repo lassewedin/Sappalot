@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter (Collider collider) 
 	{
-		if (collider.tag == "unWalkable") {
+		if (collider.tag == "Block") {
 
 
 			play ();
@@ -66,6 +66,8 @@ public class Bullet : MonoBehaviour {
 				else
 					normal = Vector3.forward;
 			}
+
+            normal = Vector3.up;
 
 			float ricochetDamp = 0.8f;
 
