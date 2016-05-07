@@ -3,6 +3,9 @@ using System.Collections;
 
 public class AngleControls : MonoBehaviour {
 
+    public bool invertedControls = false;
+    public KeyCode leftKey;
+    public KeyCode rightKey;
 
     public float maxSpeedX = 1f;
     public float maxSpeedY = 1f;
@@ -13,6 +16,8 @@ public class AngleControls : MonoBehaviour {
     public float waitTimeBeforeFireWapon0 = 0f;
     public float waitTimeBeforeFireWapon1 = 1f;
     public Transform hands;
+
+
 
     private new Rigidbody rigidbody;
     private float timeUntilFireWeapon0;
@@ -30,8 +35,8 @@ public class AngleControls : MonoBehaviour {
         Vector3 rightForceVector = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (90f - forceAngle)) * forceMagnitude, Mathf.Sin(Mathf.Deg2Rad * (90f - forceAngle)) * forceMagnitude, 0f);
         Vector3 centerForceVector = new Vector3(0f, forceMagnitude, 0f);
 
-        bool left = Input.GetKey(KeyCode.LeftArrow);
-        bool right = Input.GetKey(KeyCode.RightArrow);
+        bool left = invertedControls ? Input.GetKey(rightKey) : Input.GetKey(leftKey);
+        bool right = invertedControls ? Input.GetKey(leftKey) : Input.GetKey(rightKey);
 
         if (left && !right) {
             hands.transform.rotation = Quaternion.Euler(0f, 0f, -gunAngle + Random.Range(-gunScatterAngle * 0.5f, gunScatterAngle * 0.5f));

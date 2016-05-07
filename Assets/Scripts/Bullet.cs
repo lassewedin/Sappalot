@@ -78,7 +78,10 @@ public class Bullet : MonoBehaviour {
 			inAir = false;
 
             Block block = collider.GetComponent<Block>();
-            block.Hit(1);
+            if (block != null) {
+                block.Hit(1);
+            }
+            
 		}
 	}
 }

@@ -12,6 +12,9 @@ public class Block : MonoBehaviour {
     }
 
     public void Hit(int damage) {
+        if (hp == 0) {
+            return;
+        }
         hp -= damage;
         if (hp <= 0) {
             Destroy(gameObject);
