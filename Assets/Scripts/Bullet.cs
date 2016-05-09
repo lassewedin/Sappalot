@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour {
 
 
 	public GameObject ricochetParticle;
+	public GameObject light;
 
 	public AudioClip[] audioClips;
 	private bool inAir = true;
@@ -74,7 +75,7 @@ public class Bullet : MonoBehaviour {
 			Destroy( gameObject.GetComponent<BoxCollider>() );
 			Destroy( gameObject.GetComponent<Rigidbody>() );
 			Destroy( gameObject.GetComponent<LineRenderer>() );
-			Destroy( gameObject.GetComponent<Light>() );
+			Destroy( light.GetComponent<Light>() );
 			inAir = false;
 
             Block block = collider.GetComponent<Block>();
