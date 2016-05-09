@@ -7,9 +7,9 @@ public class Bullet : MonoBehaviour {
 	public GameObject ricochetParticle;
 
 	public AudioClip[] audioClips;
-
-
 	private bool inAir = true;
+
+	public float temperature = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -79,7 +79,7 @@ public class Bullet : MonoBehaviour {
 
             Block block = collider.GetComponent<Block>();
             if (block != null) {
-                block.Hit(1);
+				block.Hit(1, temperature);
             }
             
 		}
