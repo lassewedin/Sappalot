@@ -13,11 +13,14 @@ public class Block : MonoBehaviour {
 	}
 	public Type type = Type.rock;
 
+    public GameObject blockParticle;
+
     public int maxHp = 1;
 
+    public float startTremperature = 0f;
 	public float temperatureReached = 1f;
 	public float temperatureMax = 2f;
-	public float temperatureToZeroTime = 5f;
+	public float temperatureToNormalSpeed = 0.2f;
 
 	public GameObject fire;
 	public GameObject ice;
@@ -28,6 +31,7 @@ public class Block : MonoBehaviour {
 
     private void Start() {
         hp = maxHp;
+        temperature = startTremperature;
     }
 
 	public void Hit(int damage, float temperature) {
@@ -38,25 +42,31 @@ public class Block : MonoBehaviour {
 		if (type == Type.rock) {
 			hp -= damage;
 			if (hp <= 0) {
-				Destroy(gameObject);
-			}
+                Destroy();
+            }
 		}
 
 		if (type == Type.dynamicTemperature) {
 			if (this.temperature < -temperatureReached && temperature > 0f) {
-				Destroy(gameObject);
-			} else if (this.temperature > temperatureReached && temperature < 0f) {
-				Destroy(gameObject);
-			}
+                Destroy();
+            } else if (this.temperature > temperatureReached && temperature < 0f) {
+                Destroy();
+            }
 			this.temperature += temperature;
 			this.temperature = Mathf.Clamp(this.temperature, -temperatureMax, temperatureMax);
 		}
     }
 
+    private void Destroy() {
+        
+        GameObject breakParticleInstance = Instantiate(blockParticle, transform.position + new Vector3(0f, 0f, -5f), Quaternion.identity) as GameObject; //y - 2.5 since 90 degrees turned around x
+        Destroy(gameObject);
+    } 
+
 	public void FixedUpdate() {
 		if (type == Type.dynamicTemperature) {
 			if (temperature != 0f) {
-				float speedChange = temperatureMax / temperatureToZeroTime;
+				float speedChange = temperatureMax * temperatureToNormalSpeed;
 				if (temperature > 0f) {
 					temperature -= Time.fixedDeltaTime * speedChange;
 					if (temperature < 0f) {
