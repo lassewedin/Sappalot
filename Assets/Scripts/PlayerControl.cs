@@ -22,6 +22,8 @@ public class PlayerControl : MonoBehaviour {
     private float timeUntilFireWeapon1;
   
 
+	public float hoverForce = 20f;
+
     public Weapon[] weapons;
 
     void Update () {
@@ -85,4 +87,19 @@ public class PlayerControl : MonoBehaviour {
             timeUntilFireWeapon1 -= Time.deltaTime;
         }
     }
+		
+	void OnTriggerStay(Collider collider) {
+		if (rigidbody == null) {
+			rigidbody = transform.GetComponent<Rigidbody>();
+		}
+
+		if (collider.tag == "HoverZone") {
+			rigidbody.AddForce(Vector3.up * hoverForce, ForceMode.Acceleration);
+		}
+			  
+	}
+
+
+
+
 }

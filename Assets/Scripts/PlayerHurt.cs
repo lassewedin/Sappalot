@@ -5,6 +5,8 @@ using System;
 
 public class PlayerHurt : MonoBehaviour {
 
+	public Game game;
+
 	public int startHP = 100;
 	public int hurtZoneDamage = 1;
 	public float hurtZoneForce = 10f;
@@ -40,7 +42,7 @@ public class PlayerHurt : MonoBehaviour {
 	private void UpdateHp() {
 		hpText.setHp(Math.Max(hp, 0));
 		if (hp <= 0) {
-			Debug.Log("Game Over");
+			game.GameOver();
 		}
 	}
 }

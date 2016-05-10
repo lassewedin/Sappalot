@@ -1,23 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour {
 
-	// Use this for initialization
+	public new Camera camera;
+	public float cameraStartSpeed = 1f;
+	public float cameraAcceleration = 0.1f;
+
+	private float cameraSpeed;
+
+	public Text centerMessage;
+
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		cameraSpeed = cameraStartSpeed;
+
+		StartGame();
 	}
 
 	void FixedUpdate() {
 		if (Input.GetKey(KeyCode.R)) {
-			Debug.Log("Restarting...");
-			SceneManager.LoadScene("MainScene");
+			Reset();
 		}
+
+		cameraSpeed += cameraAcceleration * Time.fixedDeltaTime;
+		camera.transform.position += Vector3.down * Time.fixedDeltaTime * cameraSpeed; 
+
+	}
+
+	public void GameOver() {
+		centerMessage.text = "Game Over";
+		Reset();
+	}
+
+	public void StartGame() {
+		centerMessage.text = "Get Ready!";
+	}
+
+	public void Reset() {
+		SceneManager.LoadScene("MainScene");
 	}
 }
