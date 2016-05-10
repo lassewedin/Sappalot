@@ -60,11 +60,15 @@
      <Compile Include="Assets\Scripts\DontRotate.cs" />
      <Compile Include="Assets\Scripts\FireControl.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
+     <Compile Include="Assets\Scripts\HUD.cs" />
+     <Compile Include="Assets\Scripts\HpText.cs" />
      <Compile Include="Assets\Scripts\HunterBotMove.cs" />
+     <Compile Include="Assets\Scripts\HurtZone.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
+     <Compile Include="Assets\Scripts\KillZone.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\OffLevelOnTrasher.cs" />
-     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\PlayerHurt.cs" />
      <Compile Include="Assets\Scripts\Record.cs" />
      <Compile Include="Assets\Scripts\RecordHolder.cs" />
      <Compile Include="Assets\Scripts\Rifle.cs" />
