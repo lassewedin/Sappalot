@@ -15,8 +15,7 @@ public class Game : MonoBehaviour {
 
 	void Start () {
 		cameraSpeed = cameraStartSpeed;
-
-		StartGame();
+		StartCoroutine(ShowGetReady());
 	}
 
 	void FixedUpdate() {
@@ -30,15 +29,26 @@ public class Game : MonoBehaviour {
 	}
 
 	public void GameOver() {
-		centerMessage.text = "Game Over";
+		StartCoroutine(ShowGameOver());
 		Reset();
-	}
-
-	public void StartGame() {
-		centerMessage.text = "Get Ready!";
 	}
 
 	public void Reset() {
 		SceneManager.LoadScene("MainScene");
+	}
+
+
+	private IEnumerator ShowGetReady() {
+		centerMessage.text = "Get Ready!";
+		yield return new WaitForSeconds(1f);
+		centerMessage.text = string.Empty;
+
+	}
+
+	private IEnumerator ShowGameOver() {
+		centerMessage.text = "Game Over";
+		yield return new WaitForSeconds(1f);
+		centerMessage.text = string.Empty;
+
 	}
 }

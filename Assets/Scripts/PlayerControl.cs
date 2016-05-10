@@ -96,7 +96,7 @@ public class PlayerControl : MonoBehaviour {
 		if (collider.tag == "HoverZone") {
 			rigidbody.AddForce(Vector3.up * hoverForce, ForceMode.Acceleration);
 		}
-			  
+		  
 	}
 
 
