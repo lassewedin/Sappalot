@@ -63,16 +63,23 @@ public class AngleControls : MonoBehaviour {
 	}
 
     private void Attack() {
+		bool leftShift = Input.GetKey(KeyCode.LeftShift);
 
         if (timeUntilFireWeapon0 <= 0f) {
-            weapons[0].Attack();
+			if (!leftShift)
+				weapons[0].Attack();
+			else
+				weapons[2].Attack();
         }
         else {
             timeUntilFireWeapon0 -= Time.deltaTime;
         }
 
         if (timeUntilFireWeapon1 <= 0f) {
-            weapons[1].Attack();
+			if (!leftShift)
+				weapons[1].Attack();
+			else
+				weapons[3].Attack();
         }
         else {
             timeUntilFireWeapon1 -= Time.deltaTime;
