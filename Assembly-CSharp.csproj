@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AngleControls.cs" />
      <Compile Include="Assets\Scripts\BlockRedExplode.cs" />
      <Compile Include="Assets\Scripts\BlockTough.cs" />
      <Compile Include="Assets\Scripts\Blocks\Block.cs" />
@@ -65,9 +64,9 @@
      <Compile Include="Assets\Scripts\HunterBotMove.cs" />
      <Compile Include="Assets\Scripts\HurtZone.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
-     <Compile Include="Assets\Scripts\KillZone.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\OffLevelOnTrasher.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PlayerHurt.cs" />
      <Compile Include="Assets\Scripts\Record.cs" />
      <Compile Include="Assets\Scripts\RecordHolder.cs" />

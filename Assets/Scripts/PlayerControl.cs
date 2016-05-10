@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AngleControls : MonoBehaviour {
+public class PlayerControl : MonoBehaviour {
 
     public bool invertedControls = false;
     public KeyCode leftKey;

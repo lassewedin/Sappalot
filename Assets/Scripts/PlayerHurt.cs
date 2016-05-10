@@ -7,30 +7,31 @@ public class PlayerHurt : MonoBehaviour {
 
 	public int startHP = 100;
 	public int hurtZoneDamage = 1;
+	public float hurtZoneForce = 10f;
+
 	public int hp { get; private set;} 
 	public HpText hpText;
 
-	// Use this for initialization
+	private new Rigidbody rigidbody;
+
 	void Start () {
 		hp = startHP;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	void OnTriggerEnter (Collider collider) 
 	{
+		if (rigidbody == null) {
+			rigidbody = transform.GetComponent<Rigidbody>();
+		}
+
 		if (collider.tag == "HurtZone") {
-			Debug.Log("Player Hurt");
+			rigidbody.AddForce(new Vector3(0f, -hurtZoneForce, 0f), ForceMode.Impulse);
 			hp -= hurtZoneDamage;
 			UpdateHp();
 		}
 
 		if (collider.tag == "KillZone") {
-			Debug.Log("Player Killed");
-			hp -= 10000000;
+			hp = 0;
 			UpdateHp();
 		}
 
