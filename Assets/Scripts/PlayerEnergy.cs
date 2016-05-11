@@ -53,6 +53,11 @@ public class PlayerEnergy : MonoBehaviour {
 		}
 	}
 
+	public void Heal(int hp) {
+		this.hp += hp;
+		UpdateHp();
+	}
+
 	public void Hit(int damage, Vector3 projectileVelocity) {
 		SplashBlood(damage, projectileVelocity);
 		hitCoolDown = 0.5f;

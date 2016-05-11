@@ -9,11 +9,13 @@ public class Block : MonoBehaviour {
 		iceTemp,
 		fireTemp,
 		dynamicTemperature,
+		life,
 	
 	}
 	public Type type = Type.rock;
 
     public GameObject blockParticle;
+	public GameObject lifePrefab;
 
     public int maxHp = 8;
 
@@ -26,6 +28,7 @@ public class Block : MonoBehaviour {
 	public GameObject ice;
 
     private int hp;
+
 	private float temperature = 0f;
 	private Material material;
 
@@ -39,7 +42,7 @@ public class Block : MonoBehaviour {
             return;
         }
 
-		if (type == Type.rock) {
+		if (type == Type.rock || type == Type.life) {
 			hp -= damage;
 			if (hp <= 0) {
                 Destroy();
@@ -60,7 +63,11 @@ public class Block : MonoBehaviour {
     private void Destroy() {
         
         GameObject breakParticleInstance = Instantiate(blockParticle, transform.position + new Vector3(0f, 0f, -5f), Quaternion.identity) as GameObject; //y - 2.5 since 90 degrees turned around x
-        Destroy(gameObject);
+		if (type == Type.life) {
+			GameObject lifeInstance = Instantiate(lifePrefab, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity) as GameObject;
+		}
+
+		Destroy(gameObject);
     } 
 
 	public void FixedUpdate() {
