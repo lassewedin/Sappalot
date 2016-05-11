@@ -1,12 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BombOld.cs">
     <Files>
-      <File FileName="Assets/Scripts/Blocks/Block.cs" Line="79" Column="26" />
-      <File FileName="Assets/Scripts/AngleControls.cs" Line="62" Column="4" />
-      <File FileName="Assets/Scripts/Bullet.cs" Line="35" Column="2" />
+      <File FileName="Assets/Scripts/PlayerHurt.cs" Line="40" Column="3" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="91" Column="1" />
+      <File FileName="Assets/Scripts/Blocks/Block.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Bullet.cs" Line="28" Column="23" />
       <File FileName="Assets/Scripts/CameraSize.cs" Line="15" Column="47" />
-      <File FileName="Assets/Scripts/Game.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Game.cs" Line="49" Column="34" />
+      <File FileName="Assets/Scripts/FollowCameraY.cs" Line="14" Column="88" />
+      <File FileName="Assets/Scripts/CameraFollow.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Bomb.cs" Line="38" Column="1" />
+      <File FileName="Assets/Scripts/BombOld.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

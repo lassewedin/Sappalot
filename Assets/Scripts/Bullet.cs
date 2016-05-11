@@ -7,17 +7,14 @@ public class Bullet : MonoBehaviour {
 	public GameObject ricochetParticle;
 	public GameObject light;
 
+	public int blockDamage = 1;
+	public int playerDamage = 1;
+
 	public AudioClip[] audioClips;
 	private bool inAir = true;
 
 	public float temperature = 0f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 		if (!inAir && !gameObject.GetComponent<AudioSource> ().isPlaying) {
@@ -83,6 +80,12 @@ public class Bullet : MonoBehaviour {
 				block.Hit(1, temperature);
             }
             
-		}
+		} else if(collider.tag == "Player") {
+			collider.GetComponent<PlayerEnergy>().Hit(playerDamage);
+		} else if(collider.tag == "DisarmZone") {
+			Debug.Log("disarming bullet");
+			Destroy(gameObject);
+		} 
+
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 
-public class PlayerHurt : MonoBehaviour {
+public class PlayerEnergy : MonoBehaviour {
 
 	public Game game;
 
@@ -18,25 +18,18 @@ public class PlayerHurt : MonoBehaviour {
 
 	void Start () {
 		hp = startHP;
+		UpdateHp();
 	}
 
-	void OnTriggerEnter (Collider collider) 
-	{
+	void OnTriggerEnter (Collider collider) {
 		if (rigidbody == null) {
 			rigidbody = transform.GetComponent<Rigidbody>();
 		}
-
-//		if (collider.tag == "HurtZone") {
-//			//rigidbody.AddForce(new Vector3(0f, -hurtZoneForce, 0f), ForceMode.Impulse);
-//			hp -= hurtZoneDamage;
-//			UpdateHp();
-//		}
 
 		if (collider.tag == "KillZone") {
 			hp = 0;
 			UpdateHp();
 		}
-
 	}
 
 	void OnTriggerStay(Collider collider) {
@@ -46,10 +39,13 @@ public class PlayerHurt : MonoBehaviour {
 
 		if (collider.tag == "HurtZone") {
 			rigidbody.AddForce(new Vector3(0f, -hurtZoneForce, 0f), ForceMode.Impulse);
-			hp -= hurtZoneDamage;
-			UpdateHp();
+			Hit(hurtZoneDamage);
 		}
+	}
 
+	public void Hit(int damage) {
+		hp -= damage;
+		UpdateHp();
 	}
 
 	private void UpdateHp() {
