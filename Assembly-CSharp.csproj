@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Arm.cs" />
      <Compile Include="Assets\Scripts\BlockRedExplode.cs" />
      <Compile Include="Assets\Scripts\BlockTough.cs" />
      <Compile Include="Assets\Scripts\Blocks\Block.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Scripts\RecordHolder.cs" />
      <Compile Include="Assets\Scripts\Rifle.cs" />
      <Compile Include="Assets\Scripts\SetAudioListenerPosition.cs" />
+     <Compile Include="Assets\Scripts\SetToCameraSize.cs" />
      <Compile Include="Assets\Scripts\TurretTrigger.cs" />
      <Compile Include="Assets\Scripts\Vector3Int.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />

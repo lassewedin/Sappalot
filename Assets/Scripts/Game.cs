@@ -28,9 +28,8 @@ public class Game : MonoBehaviour {
 
 	}
 
-	public void GameOver() {
-		StartCoroutine(ShowGameOver());
-		Reset();
+	public void GameOver(float waitBefore) {
+		StartCoroutine(WaitThenGameOver());
 	}
 
 	public void Reset() {
@@ -45,10 +44,15 @@ public class Game : MonoBehaviour {
 
 	}
 
-	private IEnumerator ShowGameOver() {
-		centerMessage.text = "Game Over";
-		yield return new WaitForSeconds(1f);
-		centerMessage.text = string.Empty;
+	private IEnumerator WaitThenGameOver() {
+		yield return new WaitForSeconds(2f);
+		StartCoroutine(ShowGameOverThenRestart());
+	}
 
+	private IEnumerator ShowGameOverThenRestart() {
+		centerMessage.text = "Game Over";
+		yield return new WaitForSeconds(3f);
+		centerMessage.text = string.Empty;
+		Reset();
 	}
 }

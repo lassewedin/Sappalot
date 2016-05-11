@@ -20,8 +20,7 @@ public class PlayerControl : MonoBehaviour {
     private new Rigidbody rigidbody;
     private float timeUntilFireWeapon0;
     private float timeUntilFireWeapon1;
-  
-
+ 
 	public float hoverForce = 20f;
 
     public Weapon[] weapons;

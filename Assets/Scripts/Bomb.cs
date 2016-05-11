@@ -25,8 +25,8 @@ public class Bomb : MonoBehaviour {
 	}
 
 	private void Explode() {
-		energyPlayerFire.Hit(damage);
-		energyPlayerIce.Hit(damage);
+		energyPlayerFire.Hit(damage, (energyPlayerFire.gameObject.transform.position - transform.position).normalized * 20f);
+		energyPlayerIce.Hit(damage, (energyPlayerIce.gameObject.transform.position - transform.position).normalized * 20f);
 
 		GameObject explosionInstance = Instantiate (explosion, transform.position, Quaternion.identity ) as GameObject;
 		Destroy(gameObject);

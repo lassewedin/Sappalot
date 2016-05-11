@@ -18,8 +18,7 @@ public class DestroyAfterEffects : MonoBehaviour {
 			//Destroy (gameObject);
 		//}
 
-		if (
-			(particle != null && audio == null && !particle.IsAlive ()) || 
+		if ((particle != null && audio == null && !particle.IsAlive ()) || 
 			(audio != null && !audio.isPlaying) ||
 			(particle != null && !particle.IsAlive () && audio != null && !audio.isPlaying)) {
 

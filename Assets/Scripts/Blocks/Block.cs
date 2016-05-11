@@ -15,7 +15,7 @@ public class Block : MonoBehaviour {
 
     public GameObject blockParticle;
 
-    public int maxHp = 1;
+    public int maxHp = 8;
 
     public float startTremperature = 0f;
 	public float temperatureReached = 1f;
@@ -29,7 +29,7 @@ public class Block : MonoBehaviour {
 	private float temperature = 0f;
 	private Material material;
 
-    private void Start() {
+    private void Awake() {
         hp = maxHp;
         temperature = startTremperature;
     }

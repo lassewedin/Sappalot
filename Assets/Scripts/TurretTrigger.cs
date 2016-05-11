@@ -4,14 +4,11 @@ using System.Collections;
 public class TurretTrigger : MonoBehaviour {
 
 	public Weapon[] weapons;
+	public Arm arm;
 
 	void OnTriggerStay(Collider collider) {
-
-		Debug.Log("On trigger");
-
-		if (collider.tag == "Player") {
+		if (collider.tag == "Player" && arm.armed) {
 			weapons[0].Attack();
 		}
 	}
-
 }

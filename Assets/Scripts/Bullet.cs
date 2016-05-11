@@ -76,12 +76,15 @@ public class Bullet : MonoBehaviour {
 			inAir = false;
 
             Block block = collider.GetComponent<Block>();
-            if (block != null) {
+			if (block == null) {
+				block = collider.transform.parent.GetComponent<Block>(); // to cope with turret
+			}
+			if (block != null) {
 				block.Hit(1, temperature);
-            }
+			}
             
 		} else if(collider.tag == "Player") {
-			collider.GetComponent<PlayerEnergy>().Hit(playerDamage);
+			collider.GetComponent<PlayerEnergy>().Hit(playerDamage, this.GetComponent<Rigidbody>().velocity);
 		} else if(collider.tag == "DisarmZone") {
 			Debug.Log("disarming bullet");
 			Destroy(gameObject);
