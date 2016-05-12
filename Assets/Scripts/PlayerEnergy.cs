@@ -16,10 +16,17 @@ public class PlayerEnergy : MonoBehaviour {
 	public float hurtZoneForce = 10f;
 
 	public int hp { get; private set;} 
-	//public HpText hpText;
+	private HpText hpText;
 
 	private new Rigidbody rigidbody;
 	private float hitCoolDown = 0f;
+
+	public enum Type {
+		red,
+		blue,
+
+	}
+	public Type type = Type.red;
 
 	void Start () {
 		hp = startHP;
@@ -78,7 +85,12 @@ public class PlayerEnergy : MonoBehaviour {
 	}
 
 	private void UpdateHp() {
-		//hpText.setHp(Math.Max(hp, 0));
+		if (type == Type.red) {
+			GameObject.Find("Text Player Fire").GetComponent<HpText>().setHp(Math.Max(hp, 0));
+		} else {
+			GameObject.Find("Text Player Ice").GetComponent<HpText>().setHp(Math.Max(hp, 0));
+		}
+
 		if (hp <= 0) {
 			Kill();
 			game.GameOver(2f);

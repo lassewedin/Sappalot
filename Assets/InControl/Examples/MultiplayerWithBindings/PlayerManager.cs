@@ -150,6 +150,7 @@ namespace MultiplayerWithBindingsExample
 				playerPositions.RemoveAt( 0 );
 
 				var gameObject = (GameObject) Instantiate( players.Count == 0 ? playerFirePrefab : playerIcePrefab, playerPosition, Quaternion.identity );
+				gameObject.name = players.Count == 0 ? "Player Fire" : "Player Ice";
 				var player = gameObject.GetComponent<Player>();
 
 				if (inputDevice == null)
