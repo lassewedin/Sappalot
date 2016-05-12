@@ -6,9 +6,13 @@ using System;
 public class PlayerEnergy : MonoBehaviour {
 
 	public Game game;
+	public MeshRenderer bodyMeshRenderer;
+	public MeshRenderer headMeshRenderer;
+
 	public GameObject BloodStainParticles;
 	public Material playerMaterial;
-	public Color color;
+	private Material playerMaterialOriginal;
+	public Material playerMaterialHurt;
 
 	public int startHP = 100;
     public int maxHP = 100;
@@ -35,9 +39,16 @@ public class PlayerEnergy : MonoBehaviour {
 	}
 
 	private void Update() {
-		playerMaterial.color = Color.Lerp(color, Color.white, hitCoolDown);
-		hitCoolDown -= Time.deltaTime;
-		hitCoolDown = Mathf.Max(0f, hitCoolDown);
+		if (hitCoolDown > 0f) {
+			hitCoolDown -= Time.deltaTime;
+
+			bodyMeshRenderer.material = playerMaterialHurt;
+			headMeshRenderer.material = playerMaterialHurt;
+
+		} else {
+			bodyMeshRenderer.material = playerMaterial;
+			headMeshRenderer.material = playerMaterial;
+		}
 	}
 
 	void OnTriggerEnter (Collider collider) {
@@ -70,14 +81,14 @@ public class PlayerEnergy : MonoBehaviour {
 
 	public void Hit(int damage, Vector3 projectileVelocity) {
 		SplashBlood(damage, projectileVelocity);
-		hitCoolDown = 0.5f;
+		hitCoolDown = 0.1f;
 
 		hp -= damage;
 		UpdateHp();
 	}
 
 	private void SplashBlood(int damage, Vector3 projectileVelocity) {
-		GameObject bloodInstance = Instantiate(BloodStainParticles, transform.position, Quaternion.LookRotation(projectileVelocity, Vector3.up)) as GameObject;
+		GameObject bloodInstance = Instantiate(BloodStainParticles, transform.position + new Vector3(0f, 0f, -2f), Quaternion.LookRotation(projectileVelocity, Vector3.up)) as GameObject;
 		bloodInstance.GetComponent<ParticleSystem>().emission.SetBursts(new ParticleSystem.Burst[] {new ParticleSystem.Burst(0f, (short)damage)});
 		if (projectileVelocity != Vector3.zero) {
 			bloodInstance.GetComponent<ParticleSystem>().startSpeed = projectileVelocity.magnitude * 0.9f;

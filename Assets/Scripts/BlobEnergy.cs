@@ -35,6 +35,13 @@ public class BlobEnergy : MonoBehaviour {
         }
     }
 
+	void OnTriggerExit(Collider collider) {
+		if (collider.tag == "ArmZoneLarge") {
+			Debug.Log("removing blob");
+			Kill();
+		}
+	}
+
     public void Hit(int damage, Vector3 projectileVelocity) {
         SplashBlood(damage, projectileVelocity);
         hp -= damage;
@@ -52,7 +59,7 @@ public class BlobEnergy : MonoBehaviour {
     }
 
     private void Kill() {
-        SplashBlood(5, Vector3.zero);
+        SplashBlood(20, Vector3.zero);
         Destroy(gameObject);
     }
 }

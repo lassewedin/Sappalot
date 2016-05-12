@@ -4,9 +4,10 @@ using System.Collections;
 public class Blob : MonoBehaviour {
 
     public int damage = 10;
-    private Rigidbody rigidbody;
-
+	public float jumpForce = 20f;
 	public float jumpCooldown = 1f;
+
+	private Rigidbody rigidbody;
 	private float jumpCooldownLeft = 0f; 
 
 	private void OnTriggerStay(Collider collider) {
@@ -22,7 +23,7 @@ public class Blob : MonoBehaviour {
 		if (collider.tag == "Block") {
 			if (jumpCooldownLeft <= 0f) {
 			
-				rigidbody.AddForce(new Vector3(Random.Range(-1f, 1f), 5f, 0f), ForceMode.Impulse);
+				rigidbody.AddForce(new Vector3(Random.Range(-jumpForce * 0.5f, jumpForce * 0.5f), jumpForce + Random.Range(0f, jumpForce * 0.5f), 0f), ForceMode.Impulse);
 				jumpCooldownLeft = jumpCooldown;
 			} else {
 				jumpCooldownLeft -= Time.fixedDeltaTime;

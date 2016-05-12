@@ -7,6 +7,8 @@ public class SetToCameraSize : MonoBehaviour {
 
 	private BoxCollider boxCollider;
 
+	public float exagerate = 1f;
+
 	private void Start() {
 		boxCollider = GetComponent<BoxCollider>();
 	}
@@ -14,7 +16,7 @@ public class SetToCameraSize : MonoBehaviour {
 	private void Update() {
 		float aspect = (float)Screen.width / (float)Screen.height;
 
-		float height = camera.orthographicSize * 2f;
+		float height = camera.orthographicSize * 2f * exagerate;
 		float width = aspect * height * 4;
 		transform.localScale = new Vector3(width, height, transform.localScale.z);
 
