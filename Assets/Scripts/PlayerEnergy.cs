@@ -86,6 +86,6 @@ public class PlayerEnergy : MonoBehaviour {
 
 	private void Kill() {
 		SplashBlood(100, Vector3.zero);
-        Destroy(gameObject);
+		gameObject.SetActive(false);
 	} 
 }

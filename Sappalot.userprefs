@@ -1,23 +1,27 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BombOld.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Bullet.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerHurt.cs" Line="40" Column="3" />
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="91" Column="1" />
-      <File FileName="Assets/Scripts/Blocks/Block.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Bullet.cs" Line="28" Column="23" />
-      <File FileName="Assets/Scripts/CameraSize.cs" Line="15" Column="47" />
-      <File FileName="Assets/Scripts/Game.cs" Line="49" Column="34" />
-      <File FileName="Assets/Scripts/FollowCameraY.cs" Line="14" Column="88" />
-      <File FileName="Assets/Scripts/CameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Bomb.cs" Line="38" Column="1" />
-      <File FileName="Assets/Scripts/BombOld.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Blocks/Block.cs" Line="69" Column="1" />
+      <File FileName="Assets/Scripts/LifePickup.cs" Line="12" Column="22" />
+      <File FileName="Assets/Scripts/PlayerEnergy.cs" Line="57" Column="9" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="23" Column="2" />
+      <File FileName="Assets/Scripts/TurretTrigger.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/Bomb.cs" Line="27" Column="20" />
+      <File FileName="Assets/Scripts/Bullet.cs" Line="88" Column="1" />
+      <File FileName="Assets/Scripts/CameraSize.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Game.cs" Line="43" Column="37" />
+      <File FileName="Assets/Scripts/FollowCameraY.cs" Line="14" Column="4" />
+      <File FileName="Assets/Scripts/Arm.cs" Line="19" Column="41" />
+      <File FileName="Assets/Scripts/SetToCameraSize.cs" Line="23" Column="3" />
+      <File FileName="Assets/Scripts/DestroyAfterEffects.cs" Line="21" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/lasse/Documents/Projects/Sappalot/Assets/Scripts/LevelManager.cs" line="166" column="3" />
       <Breakpoint file="/Users/lasse/Documents/Projects/Sappalot/Assets/Scripts/Blocks/BlockDynamicTemp.cs" line="14" column="3" />
+      <Breakpoint file="/Users/lasse/Documents/Projects/Sappalot/Assets/Scripts/Blocks/Block.cs" line="46" column="3" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

@@ -85,7 +85,7 @@ public class Bullet : MonoBehaviour {
 		} else if(collider.tag == "Player") {
 			collider.GetComponent<PlayerEnergy>().Hit(playerDamage, this.GetComponent<Rigidbody>().velocity);
         } else if (collider.tag == "Blob") {
-            collider.transform.parent.GetComponent<BlobEnergy>().Hit(playerDamage, this.GetComponent<Rigidbody>().velocity);
+            collider.transform.GetComponent<BlobEnergy>().Hit(playerDamage, this.GetComponent<Rigidbody>().velocity);
         }
 	}
 
