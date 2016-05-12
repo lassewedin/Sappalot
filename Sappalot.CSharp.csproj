@@ -63,10 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Arm.cs" />
+    <Compile Include="Assets\Scripts\Blob.cs" />
+    <Compile Include="Assets\Scripts\BlobEnergy.cs" />
     <Compile Include="Assets\Scripts\BlockRedExplode.cs" />
     <Compile Include="Assets\Scripts\BlockTough.cs" />
     <Compile Include="Assets\Scripts\Blocks\Block.cs" />
     <Compile Include="Assets\Scripts\Bomb.cs" />
+    <Compile Include="Assets\Scripts\BombOld.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CameraSize.cs" />
@@ -78,18 +82,20 @@
     <Compile Include="Assets\Scripts\FireControl.cs" />
     <Compile Include="Assets\Scripts\FollowCameraY.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
-    <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\HpText.cs" />
     <Compile Include="Assets\Scripts\HunterBotMove.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\LifePickup.cs" />
     <Compile Include="Assets\Scripts\OffLevelOnTrasher.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\PlayerHurt.cs" />
+    <Compile Include="Assets\Scripts\PlayerEnergy.cs" />
     <Compile Include="Assets\Scripts\Record.cs" />
     <Compile Include="Assets\Scripts\RecordHolder.cs" />
     <Compile Include="Assets\Scripts\Rifle.cs" />
     <Compile Include="Assets\Scripts\SetAudioListenerPosition.cs" />
+    <Compile Include="Assets\Scripts\SetToCameraSize.cs" />
+    <Compile Include="Assets\Scripts\TurretTrigger.cs" />
     <Compile Include="Assets\Scripts\Vector3Int.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />

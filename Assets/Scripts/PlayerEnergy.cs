@@ -11,6 +11,7 @@ public class PlayerEnergy : MonoBehaviour {
 	public Color color;
 
 	public int startHP = 100;
+    public int maxHP = 100;
 	public int hurtZoneDamage = 1;
 	public float hurtZoneForce = 10f;
 
@@ -55,6 +56,7 @@ public class PlayerEnergy : MonoBehaviour {
 
 	public void Heal(int hp) {
 		this.hp += hp;
+        this.hp = Math.Min(this.hp, maxHP);
 		UpdateHp();
 	}
 
@@ -70,7 +72,7 @@ public class PlayerEnergy : MonoBehaviour {
 		GameObject bloodInstance = Instantiate(BloodStainParticles, transform.position, Quaternion.LookRotation(projectileVelocity, Vector3.up)) as GameObject;
 		bloodInstance.GetComponent<ParticleSystem>().emission.SetBursts(new ParticleSystem.Burst[] {new ParticleSystem.Burst(0f, (short)damage)});
 		if (projectileVelocity != Vector3.zero) {
-			bloodInstance.GetComponent<ParticleSystem>().startSpeed = projectileVelocity.magnitude * 0.5f;
+			bloodInstance.GetComponent<ParticleSystem>().startSpeed = projectileVelocity.magnitude * 0.9f;
 		}
 	}
 
@@ -84,6 +86,6 @@ public class PlayerEnergy : MonoBehaviour {
 
 	private void Kill() {
 		SplashBlood(100, Vector3.zero);
-		gameObject.SetActive(false);
+        Destroy(gameObject);
 	} 
 }

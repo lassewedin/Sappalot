@@ -30,8 +30,7 @@ public class Bullet : MonoBehaviour {
 
 	} 
 
-	void OnTriggerEnter (Collider collider) 
-	{
+	private void OnTriggerEnter (Collider collider) {
 		if (collider.tag == "Block") {
 			play ();
 			//find exact collision
@@ -85,10 +84,17 @@ public class Bullet : MonoBehaviour {
             
 		} else if(collider.tag == "Player") {
 			collider.GetComponent<PlayerEnergy>().Hit(playerDamage, this.GetComponent<Rigidbody>().velocity);
-		} else if(collider.tag == "DisarmZone") {
-			Debug.Log("disarming bullet");
-			Destroy(gameObject);
-		} 
-
+        } else if (collider.tag == "Blob") {
+            collider.transform.parent.GetComponent<BlobEnergy>().Hit(playerDamage, this.GetComponent<Rigidbody>().velocity);
+        }
 	}
+
+    private void OnTriggerExit(Collider collider) {
+        if (collider.tag == "ArmZone") {
+            Debug.Log("disarming bullet");
+            Destroy(gameObject);
+        }
+    }
+
+
 }

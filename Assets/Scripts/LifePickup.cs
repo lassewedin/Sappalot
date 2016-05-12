@@ -9,7 +9,7 @@ public class LifePickup : MonoBehaviour {
 
 		if (collider.tag == "Player") {
 			collider.gameObject.GetComponent<PlayerEnergy>().Heal(healHp);
-			Destroy(gameObject);
+			Destroy(transform.parent.gameObject);
 		}
 	}
 }

@@ -10,12 +10,14 @@ public class Block : MonoBehaviour {
 		fireTemp,
 		dynamicTemperature,
 		life,
+        blob,
 	
 	}
 	public Type type = Type.rock;
 
     public GameObject blockParticle;
 	public GameObject lifePrefab;
+    public GameObject blobPrefab;
 
     public int maxHp = 8;
 
@@ -42,7 +44,7 @@ public class Block : MonoBehaviour {
             return;
         }
 
-		if (type == Type.rock || type == Type.life) {
+		if (type == Type.rock || type == Type.life || type == Type.blob) {
 			hp -= damage;
 			if (hp <= 0) {
                 Destroy();
@@ -64,10 +66,13 @@ public class Block : MonoBehaviour {
         
         GameObject breakParticleInstance = Instantiate(blockParticle, transform.position + new Vector3(0f, 0f, -5f), Quaternion.identity) as GameObject; //y - 2.5 since 90 degrees turned around x
 		if (type == Type.life) {
-			GameObject lifeInstance = Instantiate(lifePrefab, transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity) as GameObject;
+			GameObject lifeInstance = Instantiate(lifePrefab, transform.position + new Vector3(0f, 0f, -1f), Quaternion.identity) as GameObject;
 		}
+        else if (type == Type.blob) {
+            GameObject blobInstance = Instantiate(blobPrefab, transform.position + new Vector3(0f, 0f, -1f), Quaternion.identity) as GameObject;
+        }
 
-		Destroy(gameObject);
+        Destroy(gameObject);
     } 
 
 	public void FixedUpdate() {

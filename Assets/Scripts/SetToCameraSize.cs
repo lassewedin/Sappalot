@@ -15,7 +15,7 @@ public class SetToCameraSize : MonoBehaviour {
 		float aspect = (float)Screen.width / (float)Screen.height;
 
 		float height = camera.orthographicSize * 2f;
-		float width = aspect * height;
+		float width = aspect * height * 4;
 		transform.localScale = new Vector3(width, height, transform.localScale.z);
 
 		transform.position = new Vector3(transform.position.x, camera.transform.position.y, transform.position.z);
