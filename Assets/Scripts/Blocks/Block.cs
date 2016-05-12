@@ -69,7 +69,7 @@ public class Block : MonoBehaviour {
 			GameObject lifeInstance = Instantiate(lifePrefab, transform.position + new Vector3(0f, 0f, -1f), Quaternion.identity) as GameObject;
 		}
         else if (type == Type.blob) {
-            GameObject blobInstance = Instantiate(blobPrefab, transform.position + new Vector3(0f, 0f, -1f), Quaternion.identity) as GameObject;
+            GameObject blobInstance = Instantiate(blobPrefab, transform.position + new Vector3(0f, 0f, -1.7f), Quaternion.identity) as GameObject;
         }
 
         Destroy(gameObject);
