@@ -16,7 +16,7 @@ public class PlayerEnergy : MonoBehaviour {
 	public float hurtZoneForce = 10f;
 
 	public int hp { get; private set;} 
-	public HpText hpText;
+	//public HpText hpText;
 
 	private new Rigidbody rigidbody;
 	private float hitCoolDown = 0f;
@@ -24,6 +24,7 @@ public class PlayerEnergy : MonoBehaviour {
 	void Start () {
 		hp = startHP;
 		UpdateHp();
+		game = GameObject.Find("Game").GetComponent<Game>();
 	}
 
 	private void Update() {
@@ -77,7 +78,7 @@ public class PlayerEnergy : MonoBehaviour {
 	}
 
 	private void UpdateHp() {
-		hpText.setHp(Math.Max(hp, 0));
+		//hpText.setHp(Math.Max(hp, 0));
 		if (hp <= 0) {
 			Kill();
 			game.GameOver(2f);

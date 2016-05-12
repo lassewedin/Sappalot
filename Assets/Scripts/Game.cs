@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour {
 
+	public bool isUsingJoypad = false;
+
 	public new Camera camera;
 	public float cameraStartSpeed = 1f;
 	public float cameraAcceleration = 0.1f;
@@ -19,13 +21,13 @@ public class Game : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+
 		if (Input.GetKey(KeyCode.R)) {
 			Reset();
 		}
 
 		cameraSpeed += cameraAcceleration * Time.fixedDeltaTime;
 		camera.transform.position += Vector3.down * Time.fixedDeltaTime * cameraSpeed; 
-
 	}
 
 	public void GameOver(float waitBefore) {
@@ -38,7 +40,13 @@ public class Game : MonoBehaviour {
 
 
 	private IEnumerator ShowGetReady() {
-		centerMessage.text = "Get Ready!";
+		if (isUsingJoypad) {
+			centerMessage.text = "Press Fire!";
+		} else {
+			centerMessage.text = "Good Luck!";
+		}
+
+		Time.timeScale = 0f;
 		yield return new WaitForSeconds(1f);
 		centerMessage.text = string.Empty;
 

@@ -6,8 +6,8 @@ public class Bomb : MonoBehaviour {
 	public GameObject explosion;
     public Arm arm;
 
-    private PlayerEnergy energyPlayerFire;
-	private PlayerEnergy energyPlayerIce;
+    //private PlayerEnergy energyPlayerFire;
+	//private PlayerEnergy energyPlayerIce;
 
 	public int damage = 30;
     public float fuseTime = 3f;
@@ -15,8 +15,8 @@ public class Bomb : MonoBehaviour {
     private float fuseTimeLeft;
 
 	void Start() {
-		energyPlayerFire = GameObject.Find("Player Fire").GetComponent<PlayerEnergy>();
-		energyPlayerIce = GameObject.Find("Player Ice").GetComponent<PlayerEnergy>();
+		//energyPlayerFire = GameObject.Find("Player Fire").GetComponent<PlayerEnergy>();
+		//energyPlayerIce = GameObject.Find("Player Ice").GetComponent<PlayerEnergy>();
 
         fuseTimeLeft = fuseTime;
     }
@@ -57,8 +57,8 @@ public class Bomb : MonoBehaviour {
     }
 
 	private void Explode() {
-		energyPlayerFire.Hit(damage, (energyPlayerFire.gameObject.transform.position - transform.position).normalized * 40f);
-		energyPlayerIce.Hit(damage, (energyPlayerIce.gameObject.transform.position - transform.position).normalized * 40f);
+		//energyPlayerFire.Hit(damage, (energyPlayerFire.gameObject.transform.position - transform.position).normalized * 40f);
+		//energyPlayerIce.Hit(damage, (energyPlayerIce.gameObject.transform.position - transform.position).normalized * 40f);
 
 		GameObject explosionInstance = Instantiate (explosion, transform.position, Quaternion.identity ) as GameObject;
 		Destroy(gameObject);

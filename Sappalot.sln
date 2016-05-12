@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{96B84DD2-D991-3443-E52C-064DCBE85130}") = "Sappalot", "Assembly-CSharp.csproj", "{5EA3900A-5E5D-52F3-66E7-D309CB8957C7}"
 EndProject
+Project("{96B84DD2-D991-3443-E52C-064DCBE85130}") = "Sappalot", "Assembly-CSharp-Editor.csproj", "{1C421EF8-F956-9734-5983-4ECE2DABEC6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{5EA3900A-5E5D-52F3-66E7-D309CB8957C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EA3900A-5E5D-52F3-66E7-D309CB8957C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA3900A-5E5D-52F3-66E7-D309CB8957C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C421EF8-F956-9734-5983-4ECE2DABEC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C421EF8-F956-9734-5983-4ECE2DABEC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C421EF8-F956-9734-5983-4ECE2DABEC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C421EF8-F956-9734-5983-4ECE2DABEC6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
