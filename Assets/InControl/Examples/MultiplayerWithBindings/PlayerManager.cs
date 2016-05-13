@@ -17,14 +17,17 @@ namespace MultiplayerWithBindingsExample
 		public GameObject playerFirePrefab;
 		public GameObject playerIcePrefab;
 
+        public Transform spawnFire;
+        public Transform spawnIce;
+ 
 		const int maxPlayers = 2;
 		List<Player> players = new List<Player>( maxPlayers );
 
 		private Game game;
 
-		List<Vector3> playerPositions = new List<Vector3>() {
-			new Vector3( -3, -27, 2 ),
-			new Vector3( 3, -27, 2 ),
+        List<Vector3> playerPositions = new List<Vector3>() {
+			//new Vector3( -3, -27, 2 ),
+			//new Vector3( 3, -27, 2 ),
 			//new Vector3( -1, -1, -10 ),
 			//new Vector3( 1, -1, -10 ),
 		};
@@ -35,7 +38,9 @@ namespace MultiplayerWithBindingsExample
 
 		private void Awake() {
 			game = GameObject.Find("Game").GetComponent<Game>();
-		}
+            playerPositions.Add(spawnFire.transform.position);
+            playerPositions.Add(spawnIce.transform.position);
+        }
 
 		void OnEnable()
 		{
