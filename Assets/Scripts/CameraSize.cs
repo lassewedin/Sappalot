@@ -4,7 +4,8 @@ using System.Collections;
 public class CameraSize : MonoBehaviour {
 
     public float levelWidth = 10f;
-    Camera cam;
+	public float viewAspect = 0.5f;
+	Camera cam;
 
 
 	// orthographic
@@ -12,8 +13,13 @@ public class CameraSize : MonoBehaviour {
 		if (cam == null) {
 			cam = GetComponent<Camera>();
 		}
-		float aspect = (float)Screen.width / (float)Screen.height;
-		float height = levelWidth / aspect;
+
+		float height = levelWidth / viewAspect;
+
+		//Stretch to width
+		//float aspect = (float)Screen.width / (float)Screen.height;
+		//float height = levelWidth / aspect;
+
 		cam.orthographicSize = height * 0.5f;
 	}
 
